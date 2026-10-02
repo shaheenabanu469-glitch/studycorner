@@ -570,4 +570,4 @@ subjectInput.addEventListener("keydown", (event) => {
     }
 });
 
-renderSubjects();
+renderSubjects
