@@ -479,4 +479,95 @@ function updateStreak() {
 }
 
 
-updateStreak();gi
+updateStreak();
+// Subjects
+
+const addSubjectButton = document.getElementById("addSubjectButton");
+const subjectForm = document.getElementById("subjectForm");
+const subjectInput = document.getElementById("subjectInput");
+const saveSubjectButton = document.getElementById("saveSubjectButton");
+const cancelSubjectButton = document.getElementById("cancelSubjectButton");
+const subjectsList = document.getElementById("subjectsList");
+
+let subjects = JSON.parse(localStorage.getItem("studyspaceSubjects")) || [];
+
+function saveSubjects() {
+    localStorage.setItem("studyspaceSubjects", JSON.stringify(subjects));
+}
+
+function renderSubjects() {
+    subjectsList.innerHTML = "";
+
+    if (subjects.length === 0) {
+        subjectsList.innerHTML = `
+            <div class="subject-card">
+                <h3>No subjects yet</h3>
+                <p>Add your first subject to get started.</p>
+            </div>
+        `;
+        return;
+    }
+
+    subjects.forEach((subject, index) => {
+        const card = document.createElement("div");
+        card.className = "subject-card";
+
+        card.innerHTML = `
+            <h3>${subject}</h3>
+            <p>Ready to study</p>
+
+            <div class="subject-actions">
+                <button class="delete-subject" data-index="${index}">
+                    Delete
+                </button>
+            </div>
+        `;
+
+        subjectsList.appendChild(card);
+    });
+
+    document.querySelectorAll(".delete-subject").forEach(button => {
+        button.addEventListener("click", () => {
+            const index = Number(button.dataset.index);
+
+            subjects.splice(index, 1);
+            saveSubjects();
+            renderSubjects();
+        });
+    });
+}
+
+addSubjectButton.addEventListener("click", () => {
+    subjectForm.classList.remove("hidden");
+    subjectInput.focus();
+});
+
+cancelSubjectButton.addEventListener("click", () => {
+    subjectInput.value = "";
+    subjectForm.classList.add("hidden");
+});
+
+saveSubjectButton.addEventListener("click", () => {
+    const subject = subjectInput.value.trim();
+
+    if (subject === "") {
+        alert("Please enter a subject name.");
+        return;
+    }
+
+    subjects.push(subject);
+
+    saveSubjects();
+    renderSubjects();
+
+    subjectInput.value = "";
+    subjectForm.classList.add("hidden");
+});
+
+subjectInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        saveSubjectButton.click();
+    }
+});
+
+renderSubjects();
