@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudySpace</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            StudySpace
+        </div>
+
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#focus">Focus</a>
+            <a href="#tasks">Tasks</a>
+            <a href="#notes">Notes</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main Content -->
+
+    <main>
+
+        <!-- Dashboard -->
+
+        <section class="dashboard" id="dashboard">
+
+            <div class="welcome">
+
+                <p class="eyebrow">YOUR STUDY SPACE</p>
+
+                <h1>
+                    Good evening.
+                </h1>
+
+                <p class="welcome-text">
+                    A little progress every day adds up to something big.
+                </p>
+
+            </div>
+
+
+            <!-- Progress -->
+
+            <div class="progress-card">
+
+                <div class="progress-heading">
+
+                    <div>
+                        <p class="card-label">Today's Progress</p>
+                        <h2 id="progressText">0%</h2>
+                    </div>
+
+                    <div class="progress-icon">
+                        %
+                    </div>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        class="progress-fill"
+                        id="progressFill"
+                    ></div>
+                </div>
+
+                <p class="progress-message" id="progressMessage">
+                    Start studying to track your progress.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Main Grid -->
+
+        <section class="app-grid">
+
+            <!-- Focus Timer -->
+
+            <div class="card focus-card" id="focus">
+
+                <div class="card-top">
+
+                    <div>
+                        <p class="card-label">FOCUS SESSION</p>
+                        <h2>Pomodoro Timer</h2>
+                    </div>
+
+                    <span class="status" id="timerStatus">
+                        Ready
+                    </span>
+
+                </div>
+
+
+                <div class="timer">
+
+                    <span id="minutes">25</span>
+                    <span class="colon">:</span>
+                    <span id="seconds">00</span>
+
+                </div>
+
+
+                <div class="timer-buttons">
+
+                    <button
+                        class="primary-button"
+                        id="startButton"
+                    >
+                        Start
+                    </button>
+
+                    <button
+                        class="secondary-button"
+                        id="pauseButton"
+                    >
+                        Pause
+                    </button>
+
+                    <button
+                        class="secondary-button"
+                        id="resetButton"
+                    >
+                        Reset
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Study Streak -->
+
+            <div class="card streak-card">
+
+                <p class="card-label">YOUR STREAK</p>
+
+                <div class="streak-number">
+                    <span id="streakNumber">0</span>
+                </div>
+
+                <h2>Days</h2>
+
+                <p>
+                    Keep showing up. Consistency matters more than perfection.
+                </p>
+
+            </div>
+
+
+            <!-- Tasks -->
+
+            <div class="card tasks-card" id="tasks">
+
+                <div class="card-top">
+
+                    <div>
+                        <p class="card-label">TODAY</p>
+                        <h2>My Tasks</h2>
+                    </div>
+
+                    <span id="taskCount">
+                        0 tasks
+                    </span>
+
+                </div>
+
+
+                <div class="task-input">
+
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="Add a study task..."
+                    >
+
+                    <button id="addTaskButton">
+                        Add
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="task-list"
+                    id="taskList"
+                >
+                </div>
+
+            </div>
+
+
+            <!-- Quick Notes -->
+
+            <div class="card notes-card" id="notes">
+
+                <div class="card-top">
+
+                    <div>
+                        <p class="card-label">QUICK NOTES</p>
+                        <h2>Study Notes</h2>
+                    </div>
+
+                    <span class="saved-text" id="savedText">
+                        Not saved
+                    </span>
+
+                </div>
+
+
+                <textarea
+                    id="notesInput"
+                    placeholder="Write something you want to remember..."
+                ></textarea>
+
+                <button
+                    class="save-button"
+                    id="saveNotesButton"
+                >
+                    Save Notes
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Quote -->
+
+        <section class="quote-section">
+
+            <p class="quote">
+                "Success is the sum of small efforts,
+                repeated day in and day out."
+            </p>
+
+            <p class="quote-author">
+                — Robert Collier
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            StudySpace
+        </p>
+
+        <span>
+            Built for better study days.
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
